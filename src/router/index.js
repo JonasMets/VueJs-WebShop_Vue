@@ -9,6 +9,7 @@ import Register from '../views/Register';
 import CheckOut from '../views/CheckOut';
 import CheckOutOk from '../views/CheckOutOk';
 import CustomerOrders from '../views/CustomerOrders';
+import CustomerProfile from '../views/CustomerProfile';
 
 Vue.use(VueRouter)
 
@@ -61,6 +62,13 @@ const routes = [
     meta:{authorize:[]}
   },
   {
+    // denna länk är spärrad om man inte är inloggad
+    path: '/customerprofile',
+    name: 'CustomerProfile',
+    component: CustomerProfile,
+    meta:{authorize:[]}
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -76,13 +84,13 @@ const router = new VueRouter({
   routes
 })
 
-// kontroll om inloggad användare får gå till en sida
+// kontroll om användare är inloggad och får gå till en viss sida
 router.beforeEach((to, from, next)=>{
   const {authorize} = to.meta;
   const currentUser = JSON.parse(sessionStorage.getItem('currentUser'))
 
   if (authorize) {
-    if (!currentUser) {
+    if (!currentUser.id) {
       return next({path:'/login', query: {returnUrl: to.path}})
     }
   }

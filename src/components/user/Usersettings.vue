@@ -10,7 +10,8 @@
       <router-link to="/register" class="dropdown-item">Skapa konto</router-link>
     </div>
     <div v-else>
-      <a class="dropdown-item" href="#">Ditt konto</a>
+      <!-- <a class="dropdown-item" href="#">Ditt konto</a> -->
+      <router-link to="/customerprofile" class="dropdown-item">Ditt konto</router-link>
       <!-- <a class="dropdown-item" href="#">Dina ordrar</a> -->
       <router-link to="/customerorders" class="dropdown-item">Dina ordrar</router-link>
       <hr>

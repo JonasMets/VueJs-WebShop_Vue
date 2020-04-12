@@ -15,8 +15,8 @@
 
         <hr>
 
-        <div>
-          <div class="total-price">
+        <div class="ml-auto mr-2">
+          <div class="total-price ">
             Totalt:
             <!-- shoppingCartTotal visar det totala beloppet genom att multiplicera antal(item.quantity) av en produkt med priset (item.product.price) -->
             <span class="ml-1">{{ order.orderTotalAmount }} sek</span>
